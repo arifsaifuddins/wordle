@@ -2,17 +2,15 @@ const tileDisplay = document.querySelector('.tile-container')
 const keyboard = document.querySelector('.key-container')
 const messageDisplay = document.querySelector('.message-container')
 
-let wordle = 'SALTH'
+let wordle;
 
-// const getWordle = () => {
-//     fetch('http://localhost:8000/word')
-//         .then(response => response.json())
-//         .then(json => {
-//             wordle = json.toUpperCase()
-//         })
-//         .catch(err => console.log(err))
-// }
-// getWordle()
+fetch("./words.json")
+	.then(res => res.json())
+	.then(data => {
+		word = Math.floor(Math.random() * data.length);
+		wordle = data[word].toUpperCase();
+		console.log(data[word]);
+	});
 
 const keys = [
 	'Q',
