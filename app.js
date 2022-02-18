@@ -186,4 +186,3 @@ const flipTile = () => {
 		}, 500 * index)
 	})
 }
-
