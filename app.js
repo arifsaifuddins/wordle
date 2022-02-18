@@ -1,16 +1,26 @@
 const tileDisplay = document.querySelector('.tile-container')
 const keyboard = document.querySelector('.key-container')
 const messageDisplay = document.querySelector('.message-container')
+const check = document.querySelector('.check')
+const refresh = document.querySelector('.refresh')
+const backspace = document.querySelector('.backspace')
 
 let wordle;
+let currentRow = 0
+let currentTile = 0
+let isGameOver = false
 
-fetch("./words.json")
-	.then(res => res.json())
-	.then(data => {
-		word = Math.floor(Math.random() * data.length);
-		wordle = data[word].toUpperCase();
-		console.log(data[word]);
-	});
+const generateWord = () => {
+	fetch("./words.json")
+		.then(res => res.json())
+		.then(data => {
+			const word = Math.floor(Math.random() * data.length);
+			wordle = data[word].toUpperCase();
+			console.log(data[word]);
+		});
+}
+
+generateWord();
 
 const keys = [
 	'Q',
@@ -32,7 +42,6 @@ const keys = [
 	'J',
 	'K',
 	'L',
-	'ENTER',
 	'Z',
 	'X',
 	'C',
@@ -40,8 +49,8 @@ const keys = [
 	'B',
 	'N',
 	'M',
-	'«',
 ]
+
 const guessRows = [
 	['', '', '', '', ''],
 	['', '', '', '', ''],
@@ -50,9 +59,6 @@ const guessRows = [
 	['', '', '', '', ''],
 	['', '', '', '', '']
 ]
-let currentRow = 0
-let currentTile = 0
-let isGameOver = false
 
 guessRows.forEach((guessRow, guessRowIndex) => {
 	const rowElement = document.createElement('div')
@@ -76,16 +82,23 @@ keys.forEach(key => {
 
 const handleClick = (letter) => {
 	if (!isGameOver) {
-		if (letter === '«') {
-			deleteLetter()
-			return
-		}
-		if (letter === 'ENTER') {
-			checkRow()
-			return
-		}
 		addLetter(letter)
 	}
+}
+
+refresh.onclick = () => {
+	window.location.reload()
+	return
+}
+
+backspace.onclick = () => {
+	deleteLetter()
+	return
+}
+
+check.onclick = () => {
+	checkRow()
+	return
 }
 
 const addLetter = (letter) => {
@@ -114,13 +127,13 @@ const checkRow = () => {
 		flipTile()
 		if (wordle == guess) {
 			showMessage('Magnificent!')
-			isGameOver = true
+			isGameOver = false
 			return
 		} else {
 			if (currentRow >= 5) {
 				isGameOver = true
 				showMessage('Game Over')
-				return
+				return;
 			}
 			if (currentRow < 5) {
 				currentRow++
