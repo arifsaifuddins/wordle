@@ -4,4 +4,4 @@ simply wordle game with :
 - javascript (logic language)
 - json (word datas)
 
-logic cloning from 'https://github.com/kubowania/wordle-javascript'
+logic cloning from https://github.com/kubowania/wordle-javascript
