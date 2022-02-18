@@ -130,14 +130,14 @@ const checkRow = () => {
 			isGameOver = false
 			return
 		} else {
+			if (currentRow < 5) {
+				currentRow++
+				currentTile = 0
+			}
 			if (currentRow >= 5) {
 				isGameOver = true
 				showMessage('Game Over')
 				return;
-			}
-			if (currentRow < 5) {
-				currentRow++
-				currentTile = 0
 			}
 		}
 	}
