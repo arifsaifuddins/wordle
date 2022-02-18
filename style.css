@@ -50,7 +50,7 @@ div img {
   width: 750px;
   display: flex;
   flex-wrap: wrap;
-  margin: 30px auto;
+  margin: 60px auto;
   justify-content: center;
 }
 
@@ -119,7 +119,7 @@ button:active {
 
 .message-container {
   height: 80px;
-  margin: 50px auto;
+  margin: 70px auto;
 }
 
 .message-container p {
