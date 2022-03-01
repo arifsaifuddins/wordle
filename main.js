@@ -134,7 +134,7 @@ const checkRow = () => {
 				currentRow++
 				currentTile = 0
 			}
-			if (currentRow >= 5) {
+			if (currentRow >= 6) {
 				isGameOver = true
 				showMessage('Game Over')
 				return;
