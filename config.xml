@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-	<widget android-versionCode="1" id="arief.wordle.app" ios-CFBundleVersion="1" version="1.0.0" xmlns="https://www.w3.org/ns/widgets">
-		<name>Wordle</name>
-		<description>wordle game</description>
-		<icon src="./icon.png" />
-		<content src="index.html" />
-	</widget>
+<widget android-versionCode="1" id="arief.wordle.app" ios-CFBundleVersion="1" version="1.0.0"
+	xmlns="https://www.w3.org/ns/widgets">
+	<name>Wordle</name>
+	<description>wordle game</description>
+	<icon src="./icon.png" />
+	<content src="index.html" />
+</widget>
